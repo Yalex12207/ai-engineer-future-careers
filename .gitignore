@@ -1,0 +1,16 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+exports/
+*.local
+.npm-cache/
+*.tsbuildinfo
+.env
+.env.*
+.vercel/
+qa/
+release/
+*.log
+Thumbs.db
+.DS_Store

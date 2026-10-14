@@ -1,0 +1,16 @@
+.git/
+node_modules/
+dist/
+.npm-cache/
+.vercel/
+.env
+.env.*
+qa/
+release/
+test-results/
+playwright-report/
+public/exports/
+exports/
+*.log
+*.local
+*.tsbuildinfo

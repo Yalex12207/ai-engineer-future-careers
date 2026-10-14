@@ -1,0 +1,127 @@
+/* 1920 × 1080 editorial compositions. Native portrait CSS remains available
+   exclusively to the legacy export profile. */
+.landscape-poster{width:1920px;height:1080px;--title:118px;--body:40px;--caption:18px}
+.landscape-poster .scene{padding:0;overflow:hidden}
+.landscape-poster .dark{background:radial-gradient(ellipse at 80% 43%,#202020 0,#141414 28%,#101010 65%);color:#F5F5F2}
+.landscape-poster .light{background:linear-gradient(125deg,#F5F5F2,#ECECE8);color:#101010}
+.landscape-poster .poster-top{top:42px;left:104px;right:104px;font-size:16px;letter-spacing:.13em;padding-bottom:24px;color:#8A8A8A}
+.landscape-poster .poster-bottom{bottom:36px;left:104px;right:104px;padding-top:22px;font-size:14px;letter-spacing:.13em}
+.landscape-poster .poster-bottom>span:last-child{font-size:30px}
+.landscape-poster .type-mask{overflow:hidden;line-height:inherit}
+.landscape-poster [data-line]{white-space:nowrap;will-change:auto}
+.landscape-poster [data-char]{display:inline-block;vertical-align:baseline}
+.landscape-poster .scene-kicker{position:absolute;top:146px;left:104px;margin:0;font-size:18px;letter-spacing:.13em;line-height:1.3}
+.landscape-poster .scene-title{position:absolute;top:215px;left:98px;width:900px;margin:0;font-size:var(--title);line-height:1.03;letter-spacing:-.056em}
+.landscape-poster .intro-title{top:205px;left:98px;right:auto;width:1060px}
+.landscape-poster .ai-word{font-size:245px;letter-spacing:-.072em;line-height:.88}
+.landscape-poster .engineer-word{font-size:173px;letter-spacing:-.062em;line-height:1.15;margin-top:12px}
+.landscape-poster .intro-label{font-size:17px;letter-spacing:.18em;margin-top:37px;margin-left:6px}
+.landscape-poster .intro-geometry{top:212px;left:auto;right:97px;width:570px;transform:none;text-align:center}
+.landscape-poster .intelligence-mark,.landscape-poster [data-idle-spin]{width:560px;height:560px}
+.landscape-poster .geometry-caption{font-size:14px;letter-spacing:.15em;margin-top:26px}
+.landscape-poster .environment-light{position:absolute;inset:-75px;border-radius:50%;background:radial-gradient(circle,#F5F5F208,transparent 64%);pointer-events:none}
+.landscape-poster .depth-orbit{position:absolute;right:44px;bottom:-65px;width:156px;height:156px;border:1px solid #F5F5F21b;border-radius:50%;filter:blur(1px);pointer-events:none}
+.landscape-poster .intro-tagline{left:440px;bottom:201px;font-size:48px;line-height:1.18;letter-spacing:-.035em}
+.landscape-poster .intro-discipline{left:440px;bottom:133px;font-size:17px;letter-spacing:.07em;gap:14px}
+.landscape-poster .hero-signature{position:absolute;left:104px;bottom:133px;width:260px;display:flex;flex-direction:column;gap:8px}
+.landscape-poster .signature-label{font-size:16px;line-height:1.3;letter-spacing:.14em;color:#8A8A8A}
+.landscape-poster .signature-name{font-size:40px;line-height:1.1;letter-spacing:-.025em;color:#F5F5F2}
+.landscape-poster .signature-class{font-size:22px;line-height:1.35;letter-spacing:.01em;color:#B8B8B8}
+.landscape-poster .small-square{width:7px;height:7px}
+.landscape-poster .work-description{position:absolute;top:226px;left:1020px;width:780px;max-width:none;margin:0;font-size:42px;line-height:1.35;letter-spacing:-.025em}
+.landscape-poster .work-diagram{position:absolute;top:526px;left:1020px;width:780px;margin:0;padding:35px 10px 25px}
+.landscape-poster .diagram-item{width:180px;gap:25px}
+.landscape-poster .diagram-item>span{font-size:16px;letter-spacing:.13em}
+.landscape-poster .data-symbol{width:132px;height:132px;padding:16px;gap:10px}
+.landscape-poster .model-symbol{width:132px;height:132px}
+.landscape-poster .model-symbol i{border-width:2px}
+.landscape-poster .model-symbol i:nth-child(2){inset:0 33px}
+.landscape-poster .model-symbol i:nth-child(3){inset:33px 0}
+.landscape-poster .diagram-arrow{margin-top:49px;font-size:34px}
+.landscape-poster .solution-symbol{font-size:151px}
+.landscape-poster .work-tasks{position:absolute;left:104px;right:104px;top:816px;margin:0;padding-top:32px;border-top:1px solid #10101030;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.landscape-poster .work-tasks p{font-size:28px;line-height:1.4;letter-spacing:-.01em}
+.landscape-poster .work-tasks span{display:block;font-size:15px;margin:0 0 17px;color:#8A8A8A}
+.landscape-poster .scene-skills .scene-title{width:975px;font-size:103px;letter-spacing:-.053em;top:222px}
+.landscape-poster .skills-grid{position:absolute;left:1080px;right:104px;top:240px;margin:0;min-height:0;height:516px;grid-template-columns:1.12fr 1fr}
+.landscape-poster .skill-column,.landscape-poster .place-column{padding-top:28px;padding-bottom:25px}
+.landscape-poster .skill-column{padding-right:37px}
+.landscape-poster .place-column{padding-left:39px}
+.landscape-poster .column-label{font-size:17px;letter-spacing:.14em}
+.landscape-poster .skills-grid ul{margin-top:40px;gap:28px}
+.landscape-poster .skills-grid li{font-size:35px;line-height:1.2;letter-spacing:-.026em}
+.landscape-poster .place-column li{font-size:36px;line-height:1.23;max-width:310px;margin-bottom:8px}
+.landscape-poster .skill-symbol{grid-template-columns:repeat(4,20px);gap:10px;margin-top:40px}
+.landscape-poster .skill-symbol i{height:20px}
+.landscape-poster .place-symbol{left:39px;bottom:31px;gap:11px}
+.landscape-poster .place-symbol i{width:22px;height:22px}
+.landscape-poster .work-environment{position:absolute;top:701px;left:104px;width:850px;margin:0;font-size:36px;line-height:1.42;letter-spacing:-.026em}
+.landscape-poster .poster-small-note{position:absolute;left:104px;bottom:133px;font-size:16px;letter-spacing:.12em;margin:0}
+.landscape-poster .scene-projects .scene-title{top:215px;font-size:112px;width:950px}
+.landscape-poster .project-grid{position:absolute;top:511px;left:104px;right:104px;margin:0;grid-template-columns:repeat(4,minmax(0,1fr))}
+.landscape-poster .project-card{height:387px;padding:29px 29px 26px}
+.landscape-poster .project-meta{font-size:15px}
+.landscape-poster .project-meta>span:last-child{font-size:25px}
+.landscape-poster .project-card>div:nth-child(2){margin-top:28px;height:100px}
+.landscape-poster .project-card h3{position:absolute;top:208px;left:29px;right:29px;font-size:37px;letter-spacing:-.04em;line-height:1.1;margin:0}
+.landscape-poster .project-card p{position:absolute;top:266px;left:29px;right:29px;font-size:27px;line-height:1.42;color:#606060;margin:0}
+.landscape-poster .assistant-symbol{gap:11px}
+.landscape-poster .assistant-symbol i{width:10px;height:33px}
+.landscape-poster .assistant-symbol i:nth-child(2),.landscape-poster .assistant-symbol i:nth-child(4){height:56px}
+.landscape-poster .assistant-symbol i:nth-child(3){height:81px}
+.landscape-poster .robot-symbol{transform:scale(1.5);transform-origin:50% 0;height:49px!important;margin-top:45px!important;margin-bottom:42px}
+.landscape-poster .vision-symbol{transform:rotate(45deg) scale(1.5);transform-origin:50% 0;height:54px!important;margin-top:46px!important;margin-bottom:37px}
+.landscape-poster .health-symbol{transform:scale(1.5);transform-origin:50% 0}
+.landscape-poster .project-closing{position:absolute;top:245px;left:1195px;width:620px;margin:0;font-size:39px;line-height:1.35;letter-spacing:-.03em}
+.landscape-poster .scene-connection .scene-kicker{font-size:18px}
+.landscape-poster .scene-connection .scene-title{top:222px;width:930px;font-size:106px;letter-spacing:-.05em}
+.landscape-poster .connection-equation{position:absolute;left:104px;top:577px;width:840px;margin:0;padding:39px 0;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;text-align:left;font-size:49px;line-height:1.02;letter-spacing:-.04em}
+.landscape-poster .equation-source{display:flex;flex-direction:column;gap:2px}
+.landscape-poster .connection-equation .equation-arrow{font-size:45px;line-height:1;color:#8A8A8A;flex-shrink:0}
+.landscape-poster .connection-equation .equation-result{font-size:43px;letter-spacing:-.04em;white-space:nowrap}
+.landscape-poster .connection-description{position:absolute;top:241px;left:1040px;width:765px;margin:0;font-size:38px;line-height:1.38;letter-spacing:-.025em}
+.landscape-poster .foundation-grid{position:absolute;top:577px;left:1040px;right:104px;margin:0;gap:39px 32px}
+.landscape-poster .foundation-grid>div{padding-top:21px;min-height:108px}
+.landscape-poster .foundation-grid span{font-size:31px;letter-spacing:-.025em}
+.landscape-poster .foundation-grid small{font-size:24px;margin-top:14px;line-height:1.3}
+.landscape-poster .connection-closing{position:absolute;left:104px;bottom:133px;width:840px;margin:0;font-size:16px;letter-spacing:.08em}
+.landscape-poster .interactive-portal,.landscape-poster .interactive-morph,.landscape-poster .interactive-wipe{width:1920px;height:1080px}
+.widescreen-app .app-header{height:72px}
+.widescreen-app .interactive-workspace{padding:12px 34px 8px}
+.widescreen-app .interactive-stage{height:100%;overflow:hidden}
+.widescreen-app .poster-fit{box-shadow:0 12px 45px #10101012}
+.widescreen-app .chapter-rail,.widescreen-app .side-arrows{display:none}
+.widescreen-app .chapter-footer{height:82px;grid-template-columns:220px 1fr 220px;gap:26px}
+.presentation-controls{display:flex;align-items:center;gap:12px}
+.presentation-controls button{display:flex;align-items:center;gap:7px;justify-content:center;padding:8px;font-size:9px}
+.presentation-controls .presentation-play{background:#101010;color:#F5F5F2;border-radius:3px;padding:10px 12px;min-width:74px}
+.presentation-controls .presentation-mode{font-size:7px;letter-spacing:.08em;color:#8A8A8A;margin-left:3px}
+.chapter-progress{display:flex;align-items:center;justify-content:center;gap:15px}
+.chapter-progress button{display:flex;align-items:center;gap:9px;padding:12px 0;font-size:8px;color:#8A8A8A;min-width:55px;opacity:1}
+.chapter-progress .chapter-track{width:57px;height:1px;background:#10101025;position:relative;overflow:hidden}
+.chapter-progress .chapter-fill{position:absolute;inset:0;background:#101010;transform-origin:left center}
+.chapter-progress button[aria-current=step]{color:#101010}
+.progress-count{font-size:10px;letter-spacing:.06em;margin-left:10px;white-space:nowrap}
+.widescreen-app .presenter-notes{top:85px;right:48px;width:350px;padding:24px;background:#F5F5F2;border:1px solid #10101020;box-shadow:0 12px 35px #10101015}
+.widescreen-app.notes-open .interactive-workspace{padding-right:415px}
+.fullscreen-tools{position:absolute;top:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:13px;padding:9px 14px;border:1px solid #8A8A8A40;border-radius:4px;background:#101010bd;color:#F5F5F2;z-index:30;font-size:11px}
+.fullscreen-tools button{display:flex;align-items:center;justify-content:center;padding:3px;gap:6px}
+.fullscreen-tools span{font-size:10px;font-variant-numeric:tabular-nums;margin-left:3px}
+.compact-reader{display:none}
+.is-fullscreen .app-header,.is-fullscreen .chapter-footer,.is-fullscreen .presenter-notes,.is-fullscreen .compact-reader{display:none}
+.is-fullscreen .interactive-workspace{padding:0}
+.export-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:23px}
+.export-options label{display:flex;flex-direction:column;gap:8px;font-size:8px;letter-spacing:.06em;color:#8A8A8A}
+.export-options select{font:inherit;color:#101010;font-size:11px;letter-spacing:0;border:1px solid #10101030;background:#F5F5F2;padding:11px;border-radius:2px;width:100%}
+@media(max-width:1100px){.widescreen-app .chapter-footer{grid-template-columns:160px 1fr 90px;gap:14px}.presentation-mode{display:none}.chapter-progress{gap:9px}.chapter-progress .chapter-track{width:28px}.chapter-progress button{min-width:30px;gap:6px}.progress-count{margin-left:2px}.widescreen-app.notes-open .interactive-workspace{padding-right:360px}.widescreen-app .presenter-notes{width:320px;right:24px}}
+@media(max-width:700px){.widescreen-app{height:auto;min-height:100dvh;overflow:visible}.widescreen-app .app-header{height:58px}.widescreen-app .interactive-workspace{height:calc((100vw - 32px)*9/16 + 24px);min-height:0;flex:none;padding:12px 16px}.widescreen-app .chapter-footer{height:72px;margin-inline:16px;grid-template-columns:auto 1fr auto;gap:9px}.presentation-controls{gap:2px}.presentation-controls button{padding:5px}.presentation-controls .presentation-play{min-width:0;padding:9px;font-size:0;gap:0}.chapter-progress{gap:8px}.chapter-progress button{gap:0;min-width:10px}.chapter-progress .chapter-track{display:none}.progress-count{font-size:8px;margin-left:2px}.widescreen-app .next-label{font-size:0;padding:6px}.widescreen-app .next-label svg{width:16px}.compact-reader{display:block;margin:18px 24px 34px;border-top:1px solid #10101020;padding-top:24px;overscroll-behavior:contain}.compact-reader h2{font-size:25px;letter-spacing:-.04em;margin-bottom:20px}.compact-reader h3{font-size:14px;letter-spacing:-.015em;margin-top:20px;margin-bottom:8px}.compact-reader p,.compact-reader li{font-size:15px;line-height:1.7;color:#555}.compact-reader li{margin-top:4px}.compact-reader .reader-kicker{font-size:8px;letter-spacing:.1em;color:#8A8A8A;margin-bottom:12px}.widescreen-app .presenter-notes{position:relative;inset:auto;width:auto;margin:18px 24px 0;box-shadow:none}.widescreen-app.notes-open .interactive-workspace{padding:12px 16px}.fullscreen-tools{top:auto;bottom:10px;gap:9px;padding:7px 9px}.interactive-stage:fullscreen .fullscreen-tools{position:fixed}.landscape-poster [data-char]{will-change:auto}}
+@media(prefers-reduced-motion:reduce){.landscape-poster .depth-orbit{filter:none}}
+@media(max-width:700px){.widescreen-app .header-course{display:none}}
+
+/* The hero and work page share a fixed camera/light coordinate system.
+   These surfaces do not participate in layout and never intercept input. */
+.landscape-poster .hero-light-plane{position:absolute;left:550px;top:430px;width:1600px;height:1600px;border-radius:50%;background:#F5F5F2;z-index:-1;pointer-events:none;opacity:0;visibility:hidden}
+.landscape-poster .hero-work-surface{position:absolute;inset:0;background:linear-gradient(125deg,#F5F5F2,#ECECE8);z-index:-1;pointer-events:none}
+.landscape-poster.hero-shot-ready .scene-intro,.landscape-poster.hero-shot-ready .scene-work,.landscape-poster.hero-shot-ready .intro-title h1,.landscape-poster.hero-shot-ready .intro-geometry{will-change:transform,opacity}
+.landscape-poster.hero-shot-active .scene-intro,.landscape-poster.hero-shot-active .scene-work,.landscape-poster.hero-shot-active .hero-light-plane,.landscape-poster.hero-shot-active .intro-title h1,.landscape-poster.hero-shot-active .intro-geometry{will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){.landscape-poster.hero-shot-ready .scene-intro,.landscape-poster.hero-shot-ready .scene-work,.landscape-poster.hero-shot-ready .intro-title h1,.landscape-poster.hero-shot-ready .intro-geometry,.landscape-poster.hero-shot-active .scene-intro,.landscape-poster.hero-shot-active .scene-work,.landscape-poster.hero-shot-active .hero-light-plane,.landscape-poster.hero-shot-active .intro-title h1,.landscape-poster.hero-shot-active .intro-geometry{will-change:auto}}
