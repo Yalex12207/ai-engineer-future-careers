@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 
 // An explicit allowlist: never traverse the parent workspace or copy local history.
 const project = resolve('.');
-const sourceFiles = ['.gitignore','.gitattributes','.vercelignore','vercel.json','index.html','package.json','package-lock.json','tsconfig.json','vite.config.ts','playwright.config.ts','README.md','DEPLOYMENT.md','VERIFICATION.md','HERO-VERIFICATION.md','public/favicon.svg','public/fonts/Geist-Regular.woff2','public/fonts/Geist-Medium.woff2','public/fonts/OFL.txt'];
+const sourceFiles = ['.gitignore','.gitattributes','.vercelignore','vercel.json','.github/workflows/deploy.yml','index.html','package.json','package-lock.json','tsconfig.json','vite.config.ts','playwright.config.ts','README.md','DEPLOYMENT.md','VERIFICATION.md','HERO-VERIFICATION.md','public/favicon.svg','public/fonts/Geist-Regular.woff2','public/fonts/Geist-Medium.woff2','public/fonts/OFL.txt'];
 async function collect(directory, extensions, output) {
   for (const entry of await readdir(resolve(project,directory), {withFileTypes:true})) {
     if (entry.isSymbolicLink()) throw new Error(`Refusing symlink in ${directory}.`);

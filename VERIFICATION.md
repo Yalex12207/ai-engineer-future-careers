@@ -78,3 +78,17 @@ Microsoft Edge 对两个 MP4 均已实际播放：duration=55，videoWidth=1920�
 生产构建预览专项测试：2 passed，验证编译后页面仍保持实时互动、默认首页、16:9 响应式尺寸和精确 1920×1080 全屏。
 
 本轮以本机 Edge 与模拟手机触屏验证；没有单独测试实际课堂投影设备、Safari、Firefox 或手机真机。
+
+## GitHub Pages 子路径适配
+
+- 技术栈为 React + TypeScript + Vite + GSAP，无路径路由；五幕仍是实时渲染。
+- 生产和 preview base 为 /ai-engineer-future-careers/，本地 dev 保持 /，保留原有 FFmpeg 导出代码。
+- npm run build 成功：1599 modules；公开文件仍为7个，字体、图标与JS/CSS均带仓库前缀。
+- npm run test:production 在严格的仓库子路径静态服务器下运行，20项全部通过（1.7分钟）。
+- 验证五幕英文内容、所有转场、正反向、轮滚、触屏、输入保护、全屏、Play/Pause/Restart、讲解提示、署名、字体、首页链接与减少运动偏好。
+- 生产检查无资源404、无外部资源请求、无根路径误请求、无控制台错误；源码与环境文件不在公开目录。
+- 新增 .github/workflows/deploy.yml；YAML解析和main/手动触发、Node22、dist产物与最小部署权限检查通过。
+- 五个官方Actions完整提交SHA均已通过GitHub官方API验证存在。
+- 实际启用Pages时GitHub返回HTTP422：Your current plan does not support GitHub Pages for this repository.
+- 源码仓库保持Private；不购买套餐或更改可见性。正式发布需解决Private Pages账户资格，并在Settings → Pages选择GitHub Actions后重新运行workflow。
+- 预期网址：https://yalex12207.github.io/ai-engineer-future-careers/ 。在deploy成功前不视为已上线。

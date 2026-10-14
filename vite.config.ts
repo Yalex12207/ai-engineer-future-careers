@@ -77,4 +77,11 @@ function localVideoExport(): Plugin {
     server.httpServer?.on('close',()=>child?.kill());
   }};
 }
-export default defineConfig({plugins:[react(),localVideoExport(),posterPublicAssets()],build:{copyPublicDir:false,sourcemap:false},server:{port:5173,strictPort:true,watch:{ignored:['**/public/exports/**','**/qa/**','**/release/**','**/test-results/**']}},preview:{port:4173,strictPort:true}});
+export default defineConfig(({command,isPreview}) => ({
+  // Local authoring stays at /; production and preview use the Pages project path.
+  base: command === 'serve' && !isPreview ? '/' : '/ai-engineer-future-careers/',
+  plugins:[react(),localVideoExport(),posterPublicAssets()],
+  build:{copyPublicDir:false,sourcemap:false},
+  server:{port:5173,strictPort:true,watch:{ignored:['**/public/exports/**','**/qa/**','**/release/**','**/test-results/**']}},
+  preview:{port:4173,strictPort:true},
+}));

@@ -1,85 +1,79 @@
-# AI Engineer — 在线作品交付
+# AI Engineer — GitHub Pages 在线作品
 
-这是 React + TypeScript + Vite + GSAP 实时交互网站。五幕、1920×1080 横屏设计、动画、讲解提示、播放控制、全屏和首页 PRESENTED BY / Yalex / Computer H262 均保留。老师的电脑只需要现代浏览器，无需安装 Node、字体或 FFmpeg。
+项目是 React + TypeScript + Vite + GSAP 实时交互网站，没有路径路由或服务器端业务。五幕、16:9 横屏布局、动画、交互、讲解提示、全屏与 PRESENTED BY / Yalex / Computer H262 保持原样。
 
-## 上传前准备
+## 路径与静态资源
+
+生产构建和本地生产预览使用 `/ai-engineer-future-careers/`。本地开发继续使用 `/`，保留 Playwright + FFmpeg 的本地视频导出接口与已有命令。
+
+首页链接使用 `import.meta.env.BASE_URL`；HTML 图标和字体预加载使用 `%BASE_URL%`。Vite 为 CSS 字体地址及 JS/CSS 自动加上生产 base 前缀。字体与 SVG 均在项目内，不依赖外部 CDN。五幕是同一页面内的 GSAP 场景，无需 SPA fallback 或 404 路由技巧。`?render=1` 和横/竖屏导出入口继续可用。
+
+`vercel.json` 和 `.vercelignore` 只保留为旧配置，不参与 GitHub Pages 构建或部署。Pages 不依赖其中的 headers，也不部署本机 FFmpeg 接口。线上 Export film 面板保留配置与本地导出命令；网站主体始终实时渲染。
+
+## 本地检查
+
+Node.js 22.12+：
 
 ```powershell
+npm ci
 npm run build
 npm run test:production
-npm run prepare:submission
+npm run preview
 ```
 
-`release/LATEST.json` 指向本次交付目录：
+生产预览地址：http://127.0.0.1:4173/ai-engineer-future-careers/
 
-- `github-upload/`：经过白名单复制的独立源码目录，可交给 **Private GitHub repository**。
-- `website/`：可直接由静态服务器提供的生产文件，与 `dist/` 一致。
-- `MANIFEST.json`：逐文件大小、SHA-256 和未上传/未部署状态，仅用于本地审核。
+`test:production` 从真实构建解析 base，在严格的仓库子路径下托管 `dist`。浏览器回归检查所有场景、字体、首页链接、动画、全屏、移动触屏和控制台错误；访问宿主根目录不会被自动兜底，因此可发现写死 `/fonts` 或 `/assets` 的问题。
 
-不要从父工作区运行 `git add .`。父仓库含有 SONORA。不要上传整个工作区、node_modules、.env、缓存、qa、test-results、release、导出视频或本地 Git 历史。只在审核后的 `github-upload` 目录建立独立仓库。原网站目录仍是继续编辑的主项目；交付目录是快照，更新后需要重新构建、测试和生成。
+本地开发运行 `npm run dev`，地址仍是 http://127.0.0.1:5173/ 。本地视频导出继续使用 `npm run export:video -- --format landscape --fps 30`（也支持 60 FPS 与 portrait），需要本机 FFmpeg 和浏览器，不影响在线作品。
 
-已提供 `.gitignore`、`.vercelignore`、`.gitattributes`、锁定依赖的 `package-lock.json` 与 `vercel.json`。网站不需要环境变量、数据库或外部 API。生产构建关闭 source maps，公开文件仅包含 HTML、编译后的 JS/CSS、字体、字体许可证和 favicon。GitHub 源码仓库保持 Private；浏览器运行所需的编译后 JS/CSS 会由公开网站正常提供。
+## 自动部署
 
-本地 Playwright + FFmpeg 导出代码和横/竖屏、30/60 FPS 选项仍保留。线上 Export film 面板提供原有配置和可复制的本地导出命令，不请求本机渲染接口、不上传已有 MP4。在线作品始终实时渲染。
+`.github/workflows/deploy.yml` 在推送 main 或手动 workflow_dispatch 时运行：
 
-## 确认后上传 GitHub
+1. GitHub 官方 checkout / setup-node 动作准备 Node 22。
+2. `npm ci` 安装锁定依赖，`npm run build` 完成 TypeScript 与 Vite 构建。
+3. upload-pages-artifact 只上传 `dist` 的网站文件。
+4. configure-pages / deploy-pages 发布到 github-pages 环境。
 
-先确认：使用你的 GitHub 个人账户建立 `ai-engineer-future-careers` **Private** 仓库；只上传审核后的 `github-upload` 文件；允许在你的 Vercel 账户公开部署作品页面（包含 Yalex 和 Computer H262）。账户登录由你完成，不提供密码或令牌。
+官方 Actions 固定到完整提交 SHA；构建只有 contents: read 权限，部署 job 才有 pages: write 和 id-token: write。没有个人访问令牌或第三方部署服务。
 
-确认后，在 GitHub 创建一个空 Private 仓库，不自动添加 README。可使用 GitHub Desktop 添加 `github-upload` 本地仓库，检查 Changes 文件列表后提交并 Publish repository，保持 **Keep this code private**。也可以仅在该目录运行下面的 Git 命令；先把示例远程地址替换为你实际建立的 Private 仓库地址：
+`node_modules`、`.env*`、缓存、QA、测试记录、MP4、本地导出 JSON、dist 和 SONORA 都不进入源码提交。生产公开文件仅包含 HTML、编译后的 JS/CSS、两份 Geist 字体、字体许可证和图标。源码仓库保持 Private。
 
-```powershell
-git init -b main
-git add .
-git diff --cached --stat
-git commit -m "Prepare AI Engineer interactive poster for submission"
-git remote add origin https://github.com/YOUR_USERNAME/ai-engineer-future-careers.git
-git push -u origin main
-```
+## Settings → Pages
 
-若要求配置提交身份，请使用你自己的 GitHub 身份或 GitHub 提供的 noreply 邮箱。不要将仓库改成 Public。
+1. 打开 https://github.com/Yalex12207/ai-engineer-future-careers/settings/pages 。
+2. 在 Build and deployment → Source 选择 **GitHub Actions**；不要选择 Deploy from a branch，不创建 gh-pages 分支。
+3. 如刚启用 Pages 后此前的 deploy job 已失败，到 Actions → Deploy Future Careers to GitHub Pages → Run workflow，选择 main。也可对该次运行选择 Re-run failed jobs。
+4. 等待 build 和 deploy 都变绿，确认 github-pages 环境显示发布网址。
+5. 保持 Enforce HTTPS（如显示该选项），用无痕窗口和另一台设备检查。
 
-## 确认后部署 Vercel
+Private 仓库的 GitHub Pages 需要 GitHub Pro 或其他支持 Private Pages 的套餐；GitHub Free 仅支持 Public 仓库的 Pages。不要为开启 Pages 将这个源码仓库改为 Public。如果 Settings 显示套餐限制，需由你解决账户资格后重新运行 workflow。
 
-1. 登录 [Vercel](https://vercel.com/new)，选择你的个人账户。
-2. Add New → Project → Import Git Repository，连接 GitHub。授权 **Only select repositories**，只选上面的 Private 仓库。
-3. 项目名建议 `ai-engineer-future-careers`；若重名，由你选择可用名字。Root Directory 为仓库根目录（`.`），不是父工作区。
-4. 检查以下设置，再点击 Deploy。`vercel.json` 已声明构建设置，无需添加环境变量。
+本次实际启用检查：GitHub 返回 HTTP 422，提示 `Your current plan does not support GitHub Pages for this repository.`，因此目前未成功启用 Pages。代码和工作流已准备为上述子路径；解决账户资格后，选择 Source → GitHub Actions 并重新运行工作流即可。没有购买套餐或更改仓库可见性。
 
-| 设置 | 值 |
-| --- | --- |
-| Framework Preset | Vite |
-| Node.js Version | 22.x |
-| Install Command | npm ci |
-| Build Command | npm run build |
-| Output Directory | dist |
-| Production Branch | main |
+参考：[Vite GitHub Pages 部署](https://vite.dev/guide/static-deploy.html#github-pages)、[GitHub Pages 可用性](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)。
 
-Vercel 支持现有 Vite 项目，GitHub 集成可在后续推送时构建部署。参见 [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite) 与 [Vercel for GitHub](https://vercel.com/docs/git/vercel-for-github)。连接后，向 main 推送会更新正式作品；后续发布仍按你的确认要求执行。
+## 网站地址与验收
 
-## 老师用的 HTTPS 地址
+预期正式地址：https://yalex12207.github.io/ai-engineer-future-careers/
 
-部署成功后，打开 Project → Settings → Domains，复制绑定到 **Production** 的稳定 `https://…vercel.app` 域名。准确域名需等部署成功后才能确定，准备阶段的项目名不代表已获得该网址。
+只有 Pages 已启用且 Actions 的 deploy 成功后，这个地址才可访问；提交 workflow 本身不代表已经上线。
 
-Settings → Deployment Protection 应允许老师匿名打开 Production 域名。可使用 **Standard Protection** 保持预览地址受保护；它不保护 Production domains。不要选择会保护正式域名的 All Deployments。参见 [Deployment Protection](https://vercel.com/docs/deployment-protection)。
+- 在无痕窗口打开网址，不应要求 GitHub 登录。
+- 首页署名、Geist 字体和几何图形完整显示。
+- 滚轮、左右键、章节按钮、Play/Pause、Restart、Speaking notes、F/Fullscreen 和触屏切换正常。
+- 五幕英文内容完整，横屏全屏无裁切；手机显示完整可读正文。
+- 点 Future Careers 首页链接后仍在仓库子路径下，刷新也正常。
+- Network 无字体、JS、CSS 或图标 404；Console 无错误；不请求 localhost、MP4 或本机导出接口。
+- 不需要本机开发服务器在线，也不需要老师安装 Node、FFmpeg 或字体。
 
-在未登录 Vercel 的无痕窗口验证正式域名，确认没有登录门槛。不要提交可能要求 Vercel 登录的 Preview / 带随机构建编号的地址。
-
-## 发布后最终检查
-
-- HTTPS 正常，首页 Yalex / Computer H262 清晰可见。
-- 字体、SVG、JS 和 CSS 全部加载成功；页面不请求 localhost、MP4 或本地导出接口。
-- 五幕英文内容完整；滚轮、←/→、章节、Play/Pause、Restart、Speaking notes、F/Fullscreen 正常。
-- 1920×1080 全屏与普通浏览器窗口无裁切；手机窄屏提供完整可读正文。
-- 另一台电脑或手机使用自己的网络打开同一 Production 网址。无需本机开发服务器运行。
-- 匿名访问无登录页、无控制台错误。完成这些检查后，再把实际 HTTPS 网址交给老师。
-
-如已部署且希望自动检查，可保持无痕可访问后运行：
+发布后可用实际地址进行回归：
 
 ```powershell
-$env:POSTER_TEST_URL = 'https://实际正式域名.vercel.app'
+$env:POSTER_TEST_URL = 'https://yalex12207.github.io/ai-engineer-future-careers/'
 $env:POSTER_PRODUCTION = '1'
 npm run test:e2e
 ```
 
-本地运行仍使用 `npm run dev`；本地生产预览使用 `npm run preview`。本文件不执行任何上传或部署。
+`npm run prepare:submission` 仍可生成白名单快照，并包含 Pages workflow。主项目是继续编辑的来源；GitHub 仓库工作副本应只同步审核过的项目文件，不使用父工作区的 Git 仓库。

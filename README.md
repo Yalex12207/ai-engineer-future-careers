@@ -22,7 +22,7 @@ npm run build
 npm run preview
 ```
 
-生产预览：[http://127.0.0.1:4173/](http://127.0.0.1:4173/)。产物位于 `dist/`。构建命令限制 Node 堆与年轻代大小，适应当前 Windows 主机的内存条件；不影响网页运行。
+生产预览：[http://127.0.0.1:4173/ai-engineer-future-careers/](http://127.0.0.1:4173/ai-engineer-future-careers/)。产物位于 `dist/`。构建命令限制 Node 堆与年轻代大小，适应当前 Windows 主机的内存条件；不影响网页运行。
 
 ## 交互
 
@@ -76,7 +76,7 @@ Vite 开发服务器提供本地渲染接口和已有文件下载。生产静态
 
 ## 在线交付
 
-Vercel 部署、Private GitHub 上传流程及老师用的正式 HTTPS 地址检查见 [DEPLOYMENT.md](DEPLOYMENT.md)。上传与部署需先经你确认。`npm run test:production` 使用真正的静态生产文件运行浏览器回归；`npm run prepare:submission` 生成隔离的源码白名单快照和公开网站快照，避免上传父工作区中的 SONORA、缓存或私人文件。
+GitHub Pages 的子路径配置、自动部署与正式 HTTPS 地址检查见 [DEPLOYMENT.md](DEPLOYMENT.md)。生产 base 为 /ai-engineer-future-careers/，本地开发保持根路径；本次按用户授权推送 main。`npm run test:production` 使用真正的静态生产文件运行浏览器回归；`npm run prepare:submission` 生成隔离的源码白名单快照和公开网站快照，避免上传父工作区中的 SONORA、缓存或私人文件。
 
 ## 验证与结构
 

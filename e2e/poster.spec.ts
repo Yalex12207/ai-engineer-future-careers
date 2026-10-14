@@ -3,7 +3,7 @@ import { scenes } from '../src/content';
 import { maximumPixelDifference } from './image-check';
 
 async function ready(page: Page, url = '/') {
-  await page.goto(url); await page.waitForFunction(() => window.__poster?.ready);
+  await page.goto(url.replace(/^\//, '')); await page.waitForFunction(() => window.__poster?.ready);
 }
 async function settled(page: Page, index: number) {
   await expect.poll(() => page.evaluate(() => window.__poster!.snapshot().transitioning)).toBe(false);
